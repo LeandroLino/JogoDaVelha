@@ -10,6 +10,9 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   color: white;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
 `;
 
 export default Container;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Container from "./styles";
 
 const Game = ({ showCurrentPLayer }) => {
   const [values, setValues] = useState(getInitialState);
@@ -86,7 +87,7 @@ const Game = ({ showCurrentPLayer }) => {
   const itsATie = Object.values(values).filter(Boolean).length === 9 && !winner;
 
   return (
-    <div className="Game">
+    <Container>
       <div className="Game__board">
         {Array.from({ length: 9 }).map((_, index) => {
           const key = getKeyFromIndex(index);
@@ -107,16 +108,19 @@ const Game = ({ showCurrentPLayer }) => {
         })}
       </div>
       {(winner || itsATie) && (
-        <div className="Game__menu">
-          {winner ? (
-            <p>O ganhador é: {winner > 0 ? "O" : "X"}</p>
-          ) : (
-            <p>Houve um empate</p>
-          )}
-          <button onClick={reset}>Reiniciar</button>
-        </div>
+        <>
+          <div onClick={reset} className="BlackBackground"></div>
+          <Container.Menu>
+            {winner ? (
+              <p>O ganhador é: {winner > 0 ? "O" : "X"}</p>
+            ) : (
+              <p>Houve um empate</p>
+            )}
+            <button onClick={reset}>Reiniciar</button>
+          </Container.Menu>
+        </>
       )}
-    </div>
+    </Container>
   );
 };
 
