@@ -20,6 +20,8 @@ const Container = styled.div`
     align-items: center;
 
     background-color: rgba(0, 0, 0, 0.8);
+
+    cursor: pointer;
   }
 `;
 
